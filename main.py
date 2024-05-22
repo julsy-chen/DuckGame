@@ -1,7 +1,8 @@
 import pygame
 from sprites import *
 from config import *
-import sys 
+import sys
+from pytmx.util_pygame import load_pygame
 
 class Game:
     def __init__(self):
@@ -52,6 +53,9 @@ g.intro_screen()
 g.new()
 while g.running:
     g.main()
+
+tmx_data = load_pygame('../data/tmx/basic.tmx')
+print(dir(tmx_data))
 
 pygame.quit()
 sys.exit

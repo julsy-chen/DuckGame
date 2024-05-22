@@ -6,6 +6,6 @@ FPS = 60
 PLAYER_LAYER = 1
 PLAYER_SPEED = 3
 
-RED = (255, 0, 0)
+RED = (255, 192, 203)
 BLACK = (0, 0, 0)
 
