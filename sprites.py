@@ -57,10 +57,11 @@ class Player(pygame.sprite.Sprite):
 npc_talk_distance = 50
 
 class Villager(pygame.sprite.Sprite):
-    def __init__(self, game, x, y): 
+    def __init__(self, game, villager_name, x, y): 
         self.game = game
         self._layer = PLAYER_LAYER
         self.groups = self.game.all_sprites
+        self.villager_name = villager_name
         pygame.sprite.Sprite.__init__(self, self.groups)
 
         self.x = x * TILESIZE
@@ -79,9 +80,9 @@ class Villager(pygame.sprite.Sprite):
 
     def on(self, other, distance):
         if distance < npc_talk_distance and self.clicked == True:
-            self.game.state["closeEnough"] = True
+            self.game.state[self.villager_name]["close_enough"] = True
         else:
-            self.game.state["closeEnough"] = False
+            self.game.state[self.villager_name]["close_enough"] = False
             self.clicked = False
         
 

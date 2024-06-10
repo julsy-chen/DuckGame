@@ -45,7 +45,7 @@ class Game:
         self.screen = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
         self.clock = pygame.time.Clock() 
         self.running = True
-        self.state = {"closeEnough" : False}
+        self.state = {"grandpapa" : {"close_enough" : False, "npc_conversation_index" : 0, "npc_line_index" : 0}}
 
     def new(self):
         # new game starts
@@ -55,7 +55,7 @@ class Game:
         self.blocks = pygame.sprite.LayeredUpdates()
 
         self.player = Player(self, 1, 2)
-        self.grandpapa = Villager(self, 3, 4)
+        self.grandpapa = Villager(self, "grandpapa", 3, 4)
 
     def events(self):
         for event in pygame.event.get():
@@ -70,7 +70,7 @@ class Game:
     def draw(self):
         # game loop draw
         self.screen.fill(BLACK)
-        if self.state["closeEnough"] == True:
+        if self.state["close_enough"] == True:
             self.draw_text(line1, font, GREEN, 10, 200)
         self.all_sprites.draw(self.screen)
         self.clock.tick(FPS)
