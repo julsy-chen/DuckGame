@@ -1,4 +1,5 @@
 import pygame
+from pytmx.util_pygame import load_pygame
 
 class TileKind:
     def __init__(self, name, image, solidity):
@@ -6,10 +7,9 @@ class TileKind:
         self.image = pygame.image.load(image)
         self.solidity = solidity
     
-
-
+'''
 class Map:
-    def __init__(self, map_file, tile_kind, tile_size):
+    def __init__(self, map_file, tile_kinds, tile_size):
         self.tile_kinds = tile_kinds
 
          # load file
@@ -33,3 +33,4 @@ class Map:
                 location = (x * self.tile_size, y * self.tile_size)
                 image = self.tile_kinds[tile].image
                 screen.blit(image, location)
+'''
