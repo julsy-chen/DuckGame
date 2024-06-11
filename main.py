@@ -9,8 +9,6 @@ from pytmx.util_pygame import load_pygame
 # dialogue
 line1 = "Hello my child, go deliver these five fish to the people in the village and bring the extra fish back to me"
 
-#fileName -> [[hello, goodbye], [blahblahblah]]
-#
 #fileName:
 # hello
 # goodbye
@@ -37,7 +35,25 @@ def parseNpcFile(fileName):
     return npc_conversations
 
 # storing npc conversations 
+
+# first village npcs
 grandpapa_conversations = parseNpcFile("grandpapa.npc")
+fiance_coversations = parseNpcFile("fiance.npc")
+
+# forest npcs
+forest_1_conversations = parseNpcFile("forest_1.npc")
+forest_2_conversations = parseNpcFile("forest_2.npc")
+forest_3_conversations = parseNpcFile("forest_3.npc")
+forest_4_conversations = parseNpcFile("forest_4.npc")
+
+# mines npcs
+miner_1_conversations = parseNpcFile("miner_1.npc")
+miner_2_conversations = parseNpcFile("miner_2.npc")
+miner_3_conversations = parseNpcFile("miner_3.npc")
+exit_miner_1_conversations = parseNpcFile("exit_miner_1.npc")
+map_instructions = parseNpcFile("map.npc")
+
+
 
 class Game:
     def __init__(self):
