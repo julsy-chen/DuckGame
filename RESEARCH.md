@@ -1,5 +1,13 @@
 Sources:
 
+Website: stack overflow - How to wrap text in pygame using pygame.font.Font()?
+Source: https://stackoverflow.com/questions/49432109/how-to-wrap-text-in-pygame-using-pygame-font-font
+Reason: Was trying to figure out how to display text
+
+Website: Python File Open
+Source: https://www.w3schools.com/python/python_file_open.asp
+Reason: Wanted to learn how to read a text file 
+
 Video: Displaying Text on The Screen In Pygame - Beginner Tutorial
 Source: https://www.youtube.com/watch?v=ndtFoWWBAoE&t=197s
 Reason: Wanted to learn how to display text

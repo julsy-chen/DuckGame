@@ -2,8 +2,8 @@ import pygame
 
 pygame.init()
 
-WIN_WIDTH = 640 
-WIN_HEIGHT = 480
+WIN_WIDTH = 1000
+WIN_HEIGHT = 800
 TILESIZE = 16
 FPS = 60
 
@@ -21,4 +21,4 @@ BLACK = (0, 0, 0)
 GREEN = (0, 244, 0)
 YELLOW = (255, 252, 211)
 
-font = pygame.font.SysFont("menlo", 10)
+font = pygame.font.SysFont("menlo", 12)

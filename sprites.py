@@ -30,15 +30,6 @@ class Player(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
-    def update(self):
-        self.movement()
-
-        self.rect.x += self.x_change
-        self.rect.y += self.y_change
-
-        self.x_change = 0
-        self.y_change = 0
-
     def movement(self):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
@@ -54,10 +45,19 @@ class Player(pygame.sprite.Sprite):
             self.y_change += PLAYER_SPEED
             self.facing = 'down'
 
-npc_talk_distance = 50
+    def update(self):
+        self.movement()
+
+        self.rect.x += self.x_change
+        self.rect.y += self.y_change
+
+        self.x_change = 0
+        self.y_change = 0
+
+npc_talk_distance = 30
 
 class Villager(pygame.sprite.Sprite):
-    def __init__(self, game, villager_name, x, y): 
+    def __init__(self, game, villager_name, colour, x, y): 
         self.game = game
         self._layer = PLAYER_LAYER
         self.groups = self.game.all_sprites
@@ -70,22 +70,18 @@ class Villager(pygame.sprite.Sprite):
         self.height = 2 * TILESIZE 
 
         self.image = pygame.Surface([self.width, self.height])
-        self.image.fill(GREEN)
+        self.image.fill(colour)
 
         self.rect = self.image.get_rect()
         self.rect.x = self.x
         self.rect.y = self.y
 
-        self.clicked = False
-
-    def on(self, other, distance):
-        if distance < npc_talk_distance and self.clicked == True:
+    def on(self, distance):
+        if distance < npc_talk_distance:
             self.game.state[self.villager_name]["close_enough"] = True
         else:
             self.game.state[self.villager_name]["close_enough"] = False
-            self.clicked = False
         
-
     def update(self):
         from main import global_player
         player = global_player
@@ -98,11 +94,7 @@ class Villager(pygame.sprite.Sprite):
                             self.rect.x / 2,
                             self.rect.y)
         
-        if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
-            print('CLICKED')
-            self.clicked = True
-
-        self.on(player, d)
+        self.on(d)                
         
         
 
