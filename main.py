@@ -116,11 +116,11 @@ class Game:
         # if pygame.mouse.get_pressed()[0] == 1 and self.clicked == False:
         ev = pygame.event.get()
         for event in ev:
-             if event.type == pygame.QUIT:
+            if event.type == pygame.QUIT:
                 self.playing = False
                 self.running = False
 
-             if event.type == pygame.MOUSEBUTTONDOWN:
+            if event.type == pygame.MOUSEBUTTONDOWN:
                 if self.show_text == False:
                     for npc, val in self.state.items():
                         if val["close_enough"]:
